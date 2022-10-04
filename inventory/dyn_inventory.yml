@@ -1,0 +1,16 @@
+plugin: rtlocal.custom_collection.dyn_inventory
+cc_username: admin
+cc_password: test
+cc_host: thisisatest.local
+compose:
+  ansible_network_os: "(softwareType == 'IOS-XE' or softwareType == 'IOS') | ternary('cisco.ios.ios', 'cisco.nxos.nxos')"
+  ansible_host: mgmtAddress
+groups:
+  ios: softwareType == 'IOS-XE' or softwareType == 'IOS'
+  nxos: ansible_network_os == 'cisco.nxos.nxos'
+keyed_groups:
+  - key: location
+    prefix: location
+  - key: deviceType
+    prefix: ""
+    separator: ""
