@@ -2,3 +2,4 @@
 collections:
   - source: ./collections/rtlocal/custom_collection
     type: dir
+  - cisco.dnac
