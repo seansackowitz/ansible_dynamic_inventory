@@ -2,7 +2,7 @@ plugin: rtlocal.custom_collection.dnac_inventory
 dnac_host: localhost
 compose:
   ansible_network_os: "(softwareType == 'IOS-XE' or softwareType == 'IOS') | ternary('cisco.ios.ios', 'cisco.nxos.nxos')"
-  ansible_host: mgmtAddress
+  ansible_host: "'mgmtAddress'"
   site_code: "hostname | regex_search('.{1}(.{3}).*', '\\1')"
 groups:
   ios: softwareType == 'IOS-XE' or softwareType == 'IOS'
